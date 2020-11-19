@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require "./lib/chi_res"
+
+ChiRes::CLI.new.call
