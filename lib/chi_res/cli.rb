@@ -1,36 +1,45 @@
-class ChiRes::CLI
-    def call 
+class ChiRes::CLI # name space
+    def call # first object to be called in the "chain of commands"
+        welcome
+        get_tags
         list_tags
-        menu
-        goodbye
+        get_user_tag
     end
 
-    def list_tags
-        puts "Chicago COVID-19 Resources:"
-        @resources = ChiRes::Resource.today
-        @resources.each.with_index(1) do |resource, i|
-            puts "#{i}. #{resource.tag} - #{resource.name} - #{resource.description}"
-        end
+    def welcome # greeting for user
+        puts "\nWelcome to Chicago COVID-19 Resources.
+        All information used on this program was derived from:
+        https://covid.citybureau.org/en/\n"
+        puts "--" * 40
     end
 
-    def menu
-        input = nil
-        while input != "exit"
-            puts "Enter the number of the tag you would like resources on or type list to see the the tags again OR type exit: "
-            input = gets.strip.downcase
-
-            if input.to_i > 0
-                puts @resources[input.to_i-1]
-            elsif input == "list"
-                list_tags
-            else 
-                puts "Not sure what you want, type list or exit"
-            end
-        end
+    def get_tags # scrapping
+        ChiRes::Resource.new("Money")
+        ChiRes::Resource.new("Food")
+        @tags = ChiRes::Resource.all # instance variable now available for all instance methods in this class
     end
 
+    def list_tags # list out tags
+        puts "\nChoose a tag by selecting its associated number\n"
+        @tags.each.with_index(1) {|t, index| puts "#{index}. #{t.tag}" }
+    end
+
+    def get_user_tag #look into refactoring 
+        chosen_tag = gets.strip.to_i
+        show_list_resources(chosen_tag) if valid_input(chosen_tag, @tags)  
+    end
+
+    def valid_input(input, data) #method
+        input.to_i <= data.length && input.to_i > 0
+    end
+
+    def show_list_resources(chosen_tag)
+        tag = @tags[chosen_tag - 1] # the first number in an array is always 0
+        puts "Here are resources for #{tag}"
+    end
+
+   
     def goodbye
-        puts "See you next time!"
+       puts "See you next time!"
     end
 end
-

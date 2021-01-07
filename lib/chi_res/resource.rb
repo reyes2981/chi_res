@@ -1,31 +1,40 @@
 class ChiRes::Resource
-    attr_accessor :tag, :name, :description, :url
+    @@all = []
+    attr_accessor :tag 
 
-    def self.today
-        # I should return a bunch of instances of resource
-        #puts <<-DOC
-        #1. Money
-        #2. Food
-        #3. Housing
-        #4. Health
-        #5. Mental Health
-        #6. Utilities
-        #7. Legal Help
-        #DOC
-        
-        resource_1 = self.new
-        resource_1.tag = "Money"
-        resource_1.name = "Get Hired Illinois"
-        resource_1.description = "Jobs website for workers and employers in Illinois."
-        resource_1.url = "https://www2.illinois.gov/gethired/pages/default.aspx"
-
-        resource_2 = self.new
-        resource_2.tag = "Health"
-        resource_2.name = "Telehealth Remote Care for Mild COVID-19 Cases"
-        resource_2.description = "If you believe you may have a mild case of COVID-19, this remote patient monitoring program is available to anyone with or without insurance in Illinois. Patients receive daily virtual visits by health care workers and receive wellness kits that include things like thermometers and pulse oximeters and blood pressure cuffs."
-        resource_2.url = "https://coronavirus.illinois.gov/s/telehealth"
-
-        [resource_1, resource_2]
+    def initialize(tag)
+        @tag = tag
+        save #create a save  method for better orginization 
     end
 
+    def self.all
+        @@all
+    end
+
+    def save
+        @@all << self
+    end
+   
+
+   
+
+    # def self.scrape_woot
+       # doc = Nokogiri::HTML(open(""))
+
+# doc = Nokogiri::HTML(open("https://covid.citybureau.org/en/?what=Food%2CHousing%2CMoney"))
+
+        # results = doc.css("div.section filter-results-section").text
+
+        # tag = doc.css("div.tag-row")[0].text
+        # tag = doc.css("h3")[0].text
+        # description = doc.css("p")[0].text
+        # url = doc.css("a")[0].attributes["href"].text
+        
+     #   resource = self.new
+        # resource.tag = doc.css("div.tag-row")[0].text
+        # resource.tag = doc.css("h3")[0].text
+        # resource.description = doc.css("p")[0].text
+        # resource.url = doc.css("a")[0].attributes["href"].text
+    #    resource
+    # end
 end
