@@ -7,23 +7,70 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    archive-zip (0.12.0)
+      io-like (~> 0.3.0)
+    childprocess (3.0.0)
+    chromedriver-helper (1.2.0)
+      archive-zip (~> 0.10)
+      nokogiri (~> 1.8)
     coderay (1.1.3)
+    colorize (0.8.1)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
+    http-accept (1.7.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    io-like (0.3.1)
+    json (2.5.1)
     method_source (1.0.0)
-    mini_portile2 (2.4.0)
-    nokogiri (1.10.10)
-      mini_portile2 (~> 2.4.0)
+    mime-types (3.3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2020.1104)
+    mini_portile2 (2.5.0)
+    netrc (0.11.0)
+    nokogiri (1.11.1)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
+    racc (1.5.2)
     rake (12.3.3)
+    regexp_parser (1.8.2)
+    rest-client (2.1.0)
+      http-accept (>= 1.7.0, < 2.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
+    rubyzip (2.3.0)
+    selenium-webdriver (3.142.7)
+      childprocess (>= 0.5, < 4.0)
+      rubyzip (>= 1.2.2)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.7)
+    watir (6.17.0)
+      regexp_parser (~> 1.2)
+      selenium-webdriver (~> 3.6)
+    webdrivers (4.5.0)
+      nokogiri (~> 1.6)
+      rubyzip (>= 1.3.0)
+      selenium-webdriver (>= 3.0, < 4.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   chi_res!
+  chromedriver-helper
+  colorize
+  json
   pry
   rake (~> 12.0)
+  rest-client
+  selenium-webdriver
+  watir (~> 6.0)
+  webdrivers (~> 4.0)
 
 BUNDLED WITH
    2.1.4

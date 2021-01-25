@@ -1,8 +1,11 @@
 #!/usr/bin/env ruby
 
+
 require "bundler/setup"
 require "chi_res"
 
 ChiRes::CLI.new.call
 
 #this is the run(executable) file
+
+#doorway to app

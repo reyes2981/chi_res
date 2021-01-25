@@ -1,0 +1,12 @@
+Build a CLI
+Welcome User. Prompt user to either choose a list or exit
+if user selects list then I will list out tacos
+    they can select taco by name to print out details of that taco
+if they select exit then I will them Adios!
+
+CLI 
+    communicates with user
+taco 
+    objects are created and stored for user display
+api
+    consumes api, instantiates objects

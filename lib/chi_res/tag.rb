@@ -5,7 +5,6 @@ class ChiRes::Tag
     def initialize(name)
         @name = name
         @resources = []
-        get_resources
         save #create a save method for better orginization 
     end
 
